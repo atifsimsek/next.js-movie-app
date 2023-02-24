@@ -1,24 +1,20 @@
 import Movies from '@/components/Movies'
+import { getSearch } from '@/services/service'
+import { DEV_CLIENT_PAGES_MANIFEST } from 'next/dist/shared/lib/constants'
 
 const page = async ({ params }) => {
 
     const keyword = params.keyword
 
-    const apiUrl = "https://api.themoviedb.org/3"
-
-    const res = await fetch(`${apiUrl}/search/movie?api_key=${process.env.API_KEY}&query=${keyword}&language=en-US&include_adult-false`)
-
-    const data = await res.json()
-
-    
+    const data = await getSearch(keyword)
 
     return (
         <div>
             {
-                data?.results ?
+                !data?.results ?
                     (
                         <div className='text-2xl flex items-center justify-center h-screen '>
-                           <h2 className='h-3/6'> Opss hiçbir şey bulunumadı, farklı bir arama deneyin.</h2>
+                            <h2 className='h-3/6'> Opss hiçbir şey bulunumadı, farklı bir arama deneyin.</h2>
                         </div>
                     )
                     :

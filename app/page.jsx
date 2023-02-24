@@ -1,13 +1,9 @@
 import Movies from "@/components/Movies"
+import { getMovies } from "@/services/service"
 
 export default async function Home({ searchParams }) {
 
-  const apiUrl = "https://api.themoviedb.org/3"
-
-  const res = await fetch(`${apiUrl}/${searchParams.genre ? "movie/" + searchParams.genre : "/trending/all/day"}?api_key=${process.env.API_KEY}&language=en-US&page=1`, { next: { revalidate: 10000 } })
-
-  const data = await res.json()
-
+  const data =  await getMovies(searchParams)
 
   return (
     <main className="flex gap-3 flex-wrap justify-center"  >

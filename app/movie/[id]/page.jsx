@@ -1,10 +1,5 @@
 import Image from "next/image"
-
-
-const getMovie = async (id) => {
-  const res = await fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=${process.env.API_KEY}&language=en-US`)
-  return await res.json()
-}
+import { getMovie } from "@/services/service"
 
 const page = async ({ params }) => {
   const id = params.id
