@@ -1,6 +1,8 @@
 import Movies from "@/components/Movies"
 import { getMovies } from "@/services/service"
 
+export const dynamic = "force-dynamic"; 
+
 export default async function Home({ searchParams }) {
 
   const data =  await getMovies(searchParams)
