@@ -8,7 +8,7 @@ const page = async ({ params }) => {
 
   return (
     <div className="relative p-7 min-h-screen">
-      <Image className="object-cover" alt={`${movieDetail?.title}`} fill={true} src={`https://image.tmdb.org/t/p/original/${movieDetail?.backdrop_path || movieDetail?.poster_path} `} />
+      <Image className="object-cover" alt={`${movieDetail?.title}`} fill={true} src={`https://image.tmdb.org/t/p/original/${movieDetail?.backdrop_path || movieDetail?.poster_path}`} />
       <div className="absolute">
         <h3 className="text-4xl font-bold my-3">{movieDetail?.title}</h3>
         <p className="w-1/2">{movieDetail?.overview}</p>
