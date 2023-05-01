@@ -1,32 +1,36 @@
-"use client"
-import { useTheme } from 'next-themes'
-import { useEffect, useState } from 'react'
-import { CiDark, CiLight } from 'react-icons/ci'
+"use client";
+import { useTheme } from "next-themes";
+import { useEffect, useState } from "react";
+import { CiDark, CiLight } from "react-icons/ci";
 
 const ThemeComp = () => {
-
-  const [mounted, setMounted] = useState(false)
-  const { stystemTheme, theme, setTheme } = useTheme()
+  const [mounted, setMounted] = useState(false);
+  const { stystemTheme, theme, setTheme } = useTheme();
 
   useEffect(() => {
-    setMounted(true)
-  }, [])
+    setMounted(true);
+  }, []);
 
-  const themeMode = theme === "system" ? stystemTheme : theme
+  const themeMode = theme === "system" ? stystemTheme : theme;
 
   return (
     <div>
-      {
-        mounted && (
-          themeMode === "dark" ?
-            <CiLight onClick={()=> setTheme("light")} className='cursor-pointer' size={25} />
-            :
-            <CiDark  onClick={()=> setTheme("dark")} className='cursor-pointer' size={25} />
-        )
-      }
-
+      {mounted &&
+        (themeMode === "dark" ? (
+          <CiLight
+            onClick={() => setTheme("light")}
+            className="cursor-pointer"
+            size={25}
+          />
+        ) : (
+          <CiDark
+            onClick={() => setTheme("dark")}
+            className="cursor-pointer"
+            size={25}
+          />
+        ))}
     </div>
-  )
-}
+  );
+};
 
-export default ThemeComp
+export default ThemeComp;

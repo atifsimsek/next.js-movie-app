@@ -1,10 +1,7 @@
-import Link from 'next/link'
+import Link from "next/link";
 
+const MenuItem = ({ item }) => {
+  return <Link href={item.url}>{item.name}</Link>;
+};
 
-const MenuItem = ({item}) => {
-  return (
-    <Link href={item.url}>{item.name}</Link>
-  )
-}
-
-export default MenuItem
+export default MenuItem;
